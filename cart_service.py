@@ -11,7 +11,7 @@ def get_cart(user_id):
     cart_info = []
     total_price = 0.0
     for product_id, quantity in cart.items():
-        product = requests.get(f"http://127.0.0.1:5000/products/{product_id}").json()
+        product = requests.get(f"https://saas-assignement2-product.onrender.com/products/{product_id}").json()
         if product:
             product_total_price = product['price'] * quantity
             total_price += product_total_price
@@ -30,7 +30,7 @@ def get_cart(user_id):
 @app.route('/cart/<int:user_id>/add/<int:product_id>', methods=['POST'])
 def add_to_cart(user_id, product_id):
     quantity = request.json.get("quantity")
-    product = requests.get(f"http://127.0.0.1:5000/products/{product_id}").json()
+    product = requests.get(f"https://saas-assignement2-product.onrender.com/products/{product_id}").json()
     
     if not product:
         return jsonify({'error': 'Product not found'}), 404
