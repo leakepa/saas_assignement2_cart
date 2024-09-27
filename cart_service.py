@@ -68,4 +68,4 @@ def remove_from_cart(user_id, product_id):
     })
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(debug=True)
